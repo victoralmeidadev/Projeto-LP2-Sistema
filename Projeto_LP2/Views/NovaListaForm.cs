@@ -19,19 +19,9 @@ namespace Projeto_LP2.Views
             InitializeComponent();
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Dispose();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -40,43 +30,18 @@ namespace Projeto_LP2.Views
             {
                 conn.Abrir();
                 IDAO<Lista> ListasDAO = new ListasDAO(conn);
-
                 Lista lista= new Lista();
-
                 lista.Nome = txtNomeLista.Text.ToString().Trim();
-
                 ListasDAO.Inserir(lista);
+
                 Dispose();
             }
-        }
-
-        private void TipoRecebimento(bool opcao)
-        {
-            //true para entrega, false para veiculo particular
-            txtPrecoEntrega.Visible = opcao;
-            lblPrecoEntrega.Visible = opcao;
-            txtPrecoCombustivel.Visible = !opcao;
-            txtRendimento.Visible = !opcao;
-            lblRendimento.Visible = !opcao;
-            lblPrecoCombustivel.Visible = !opcao;
-        }
-
-        private void radioButtonEntrega_CheckedChanged(object sender, EventArgs e)
-        {
-            //true para entrega, false para veiculo particular
-            TipoRecebimento(true);
-
-        }
-
-        private void radioButtonVeiculoParticular_CheckedChanged(object sender, EventArgs e)
-        {
-            //true para entrega, false para veiculo particular
-            TipoRecebimento(false);
         }
 
         private void NovaListaForm_Load(object sender, EventArgs e)
         {
 
         }
+        
     }
 }

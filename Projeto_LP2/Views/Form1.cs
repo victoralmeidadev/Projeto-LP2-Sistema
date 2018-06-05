@@ -42,7 +42,7 @@ namespace Projeto_LP2
         {
             using (IConnection conn = new Connection())
             {
-                conn.Abrir();
+                /*conn.Abrir();
                 IDAO<Supermercado> SupermercadoDAO = new SupermercadoDAO(conn);
                 IDAO<Produto> ProdutoDAO = new ProdutoDAO(conn);
 
@@ -61,7 +61,7 @@ namespace Projeto_LP2
                 cBoxProduto.DataSource = ProdutoDAO.ListarTudo();
                 cBoxSupermercado1.DataSource = SupermercadoDAO.ListarTudo();
                 cBoxSupermercado2.DataSource = SupermercadoDAO.ListarTudo();
-                cBoxSupermercadoProduto.DataSource = SupermercadoDAO.ListarTudo();
+                cBoxSupermercadoProduto.DataSource = SupermercadoDAO.ListarTudo();*/
 
             }
 
@@ -94,54 +94,6 @@ namespace Projeto_LP2
             //com o conteúdo do dicionário
         }
 
-    
-
-        private void CBoxEscolheVisualizacao_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cBoxEscolheVisualizacao.Text.Equals("Produtos"))
-            {
-                //true para campos por tipo produto, false para mercado
-                mostraCamposVisualizacao(true);
-            }
-            else
-            {
-                mostraCamposVisualizacao(false);
-            }
-        }
-
-        private void mostraCamposVisualizacao(bool visible)
-        {
-            
-            lblProduto.Visible = visible;
-            lblSupermercadoProduto.Visible = visible;
-            cBoxProduto.Visible = visible;
-            cBoxSupermercadoProduto.Visible = visible;
-            lblSupermercado1.Visible = !visible;
-            lblSupermercado2.Visible = !visible;
-            cBoxSupermercado1.Visible = !visible;
-            cBoxSupermercado2.Visible = !visible;
-            btnVisualizarHistorico.Visible = true;
-            
-        }
-
-        private void btnVisualizarHistorico_Click(object sender, EventArgs e)
-        {
-            if (lblProduto.Visible)
-            {
-                using (IConnection conn = new Connection())
-                {
-                    conn.Abrir();
-                    IDAO<Historico> HistoricoDAO = new HistoricoDAO(conn);
-
-                    
-                   
-                    graficoHistorico.DataSource = HistoricoDAO.ListarHistoricoPorProduto(cBoxSupermercadoProduto.Text.ToString());
-                    graficoHistorico.DataBind();
-                    conn.Fechar();
-                }
-            }
-        }
-
         private void verListasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ListasForm form = new ListasForm();
@@ -154,6 +106,81 @@ namespace Projeto_LP2
             NovaListaForm form = new NovaListaForm();
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog(this);
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+                    }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMore_Click(object sender, EventArgs e)
+        {
+            if(panelSideMenu.Height == 641 && panelSideMenu.Width == 235)
+            {
+                panelSideMenu.Height = 641;
+                panelSideMenu.Width = 32;
+                btnMore.Left = 0;
+
+            }
+            else
+            {
+                panelSideMenu.Height = 641;
+                panelSideMenu.Width = 235;
+                btnMore.Left = 202;
+
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ProdutosView newMDIChild = new ProdutosView();
+            // Set the Parent Form of the Child window.  
+            newMDIChild.MdiParent = this;
+            newMDIChild.StartPosition = FormStartPosition.CenterScreen;
+            newMDIChild.Dock = DockStyle.Fill; 
+            // Display the new form.  
+            newMDIChild.Show();
+            lblTitleScreen.Text = "Produtos";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SupermercadosView newMDIChild = new SupermercadosView();
+            // Set the Parent Form of the Child window.  
+            newMDIChild.MdiParent = this;
+            newMDIChild.StartPosition = FormStartPosition.CenterScreen;
+            newMDIChild.Dock = DockStyle.Fill;
+            // Display the new form.  
+            newMDIChild.Show();
+            lblTitleScreen.Text = "Supermercados";
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ListasDeComprasView newMDIChild = new ListasDeComprasView();
+            // Set the Parent Form of the Child window.  
+            newMDIChild.MdiParent = this;
+            newMDIChild.StartPosition = FormStartPosition.CenterScreen;
+            newMDIChild.Dock = DockStyle.Fill;
+            // Display the new form.  
+            newMDIChild.Show();
+            lblTitleScreen.Text = "Listas de compras";
         }
     }
 }

@@ -96,6 +96,7 @@
             this.txtIdLista.Size = new System.Drawing.Size(62, 20);
             this.txtIdLista.TabIndex = 6;
             this.txtIdLista.Visible = false;
+            this.txtIdLista.TextChanged += new System.EventHandler(this.txtIdLista_TextChanged);
             // 
             // NovoProdutoListaForm
             // 

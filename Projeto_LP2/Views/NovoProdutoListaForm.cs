@@ -53,5 +53,10 @@ namespace Projeto_LP2.Views
                 Dispose();
             }
         }
+
+        private void txtIdLista_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -86,6 +86,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ListasDeComprasView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListasDeComprasView.Designer.cs">
+      <DependentUpon>ListasDeComprasView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,18 @@
     </Compile>
     <Compile Include="Views\NovoProdutoListaForm.Designer.cs">
       <DependentUpon>NovoProdutoListaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProdutosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProdutosView.Designer.cs">
+      <DependentUpon>ProdutosView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupermercadosView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SupermercadosView.Designer.cs">
+      <DependentUpon>SupermercadosView.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Views\CadastroNovoProduto.resx">
       <DependentUpon>CadastroNovoProduto.cs</DependentUpon>
@@ -124,7 +142,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\ListasDeComprasView.resx">
+      <DependentUpon>ListasDeComprasView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ListasForm.resx">
       <DependentUpon>ListasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NovoProdutoListaForm.resx">
       <DependentUpon>NovoProdutoListaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProdutosView.resx">
+      <DependentUpon>ProdutosView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SupermercadosView.resx">
+      <DependentUpon>SupermercadosView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -151,6 +179,7 @@
     <Folder Include="Controller\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\exit_icon.png" />
     <Content Include="scripts\ScriptBD.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
