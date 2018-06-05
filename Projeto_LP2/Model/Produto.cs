@@ -12,10 +12,69 @@ namespace Projeto_LP2.Model
         private string nomeProduto, supermercado, codigo;
         private double preco;
 
-        public int Id { get => id; set => id = value; }
-        public string NomeProduto { get => nomeProduto; set => nomeProduto = value; }
-        public string Supermercado { get => supermercado; set => supermercado = value; }
-        public string Codigo { get => codigo; set => codigo = value; }
-        public double Preco { get => preco; set => preco = value; }
+        public string Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+
+            set
+            {
+                codigo = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string NomeProduto
+        {
+            get
+            {
+                return nomeProduto;
+            }
+
+            set
+            {
+                nomeProduto = value;
+            }
+        }
+
+        public double Preco
+        {
+            get
+            {
+                return preco;
+            }
+
+            set
+            {
+                preco = value;
+            }
+        }
+
+        public string Supermercado
+        {
+            get
+            {
+                return supermercado;
+            }
+
+            set
+            {
+                supermercado = value;
+            }
+        }
     }
 }

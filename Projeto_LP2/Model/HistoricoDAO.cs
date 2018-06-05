@@ -109,7 +109,7 @@ namespace Projeto_LP2.Model
         }
 
 
-        public Historico LocalizarPorCodigo(params object[] keys)
+        public Collection<Historico> LocalizarPorCodigo(Historico model)
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace Projeto_LP2.Model
         public Connection()
         {
             conn = new MySqlConnection();
-            conn.ConnectionString = "Server=localhost; Database=projeto; Uid=root; Pwd=root;";
+            conn.ConnectionString = "Server=localhost; Database=projeto; Uid=root; Pwd=ifsp;";
         }
         
         public MySqlConnection Abrir()

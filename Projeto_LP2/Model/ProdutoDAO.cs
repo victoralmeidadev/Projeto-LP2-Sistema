@@ -99,7 +99,7 @@ namespace Projeto_LP2.Model
             return colecao;
         }
 
-        public Produto LocalizarPorCodigo(params object[] keys)
+        public Collection<Produto> LocalizarPorCodigo(Produto model)
         {
             throw new NotImplementedException();
         }

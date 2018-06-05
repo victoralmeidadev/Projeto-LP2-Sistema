@@ -94,9 +94,34 @@ namespace Projeto_LP2.Model
             return colecao;
         }
 
-        public Lista LocalizarPorCodigo(params object[] keys)
+        public Collection<Lista> LocalizarPorCodigo(Lista model)
         {
-            throw new NotImplementedException();
+            Collection<Lista> colecao = new Collection<Lista>();
+
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "SELECT * FROM listas WHERE lis_nome like @value";
+
+                cmd.Parameters.AddWithValue("@value", "%" + model.Nome + "%");
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+
+                    foreach (DataRow row in tabela.Rows)
+                    {
+                        Lista lista = new Lista
+                        {
+                            Id = int.Parse(row["id_lista"].ToString()),
+                            Nome = row["lis_nome"].ToString()
+                        };
+                        colecao.Add(lista);
+                    }
+                }
+                return colecao;
+            }
         }
 
         public bool Remover(Lista model)

@@ -21,7 +21,7 @@ namespace Projeto_LP2.Interfaces
         bool Remover(T model);
 
         //metodo para procurar um registro especifico
-        T LocalizarPorCodigo(params Object[] keys);
+        Collection<T> LocalizarPorCodigo(T model);
 
         //metodo para encontrar tudo
         Collection<T> ListarTudo();

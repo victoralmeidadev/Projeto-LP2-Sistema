@@ -21,7 +21,18 @@ namespace Projeto_LP2.Views
         }
         private int idSelecionado;
 
-        public int IdSelecionado { get => idSelecionado; set => idSelecionado = value; }
+        public int IdSelecionado
+        {
+            get
+            {
+                return idSelecionado;
+            }
+
+            set
+            {
+                idSelecionado = value;
+            }
+        }
 
         private void ListasDeComprasView_Load(object sender, EventArgs e)
         {
@@ -84,6 +95,21 @@ namespace Projeto_LP2.Views
                 ListasDAO.Remover(lista);
                 Dispose();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            using (IConnection conn = new Connection())
+            {
+                conn.Abrir();
+                IDAO<Lista> ListasDAO = new ListasDAO(conn);
+                Lista lista = new Lista();
+                lista.Nome = txtFiltro.Text;
+                
+                dataGridViewListas.DataSource = ListasDAO.LocalizarPorCodigo(lista);
+                dataGridViewListas.Refresh();
+            }
+
         }
     }
     }
