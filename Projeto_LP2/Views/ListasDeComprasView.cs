@@ -93,7 +93,7 @@ namespace Projeto_LP2.Views
                 Lista lista = new Lista();
                 lista.Id = IdSelecionado;
                 ListasDAO.Remover(lista);
-                Dispose();
+                
             }
         }
 
@@ -109,6 +109,11 @@ namespace Projeto_LP2.Views
                 dataGridViewListas.DataSource = ListasDAO.LocalizarPorCodigo(lista);
                 dataGridViewListas.Refresh();
             }
+
+        }
+
+        private void dataGridViewListas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

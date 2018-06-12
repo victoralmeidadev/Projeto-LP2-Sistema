@@ -209,6 +209,7 @@
             this.dataGridViewListas.Size = new System.Drawing.Size(800, 282);
             this.dataGridViewListas.TabIndex = 0;
             this.dataGridViewListas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListas_CellClick);
+            this.dataGridViewListas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewListas_CellContentClick);
             // 
             // ListasDeComprasView
             // 

@@ -11,7 +11,6 @@ namespace Projeto_LP2.Model
         private int id;
         private string nomeProduto, supermercado, codigo;
         private double preco;
-
         public string Codigo
         {
             get
