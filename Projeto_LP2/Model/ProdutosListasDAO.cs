@@ -40,7 +40,7 @@ namespace Projeto_LP2.Model
 
                 cmd.Parameters.AddWithValue("@pro_lista", model.Id_lista);
                 cmd.Parameters.AddWithValue("@pro_nome", model.Nome);
-                cmd.Parameters.AddWithValue("@pro_idProduto", model.Id_produto);
+                cmd.Parameters.AddWithValue("@pro_idProduto", int.Parse(model.Id_produto));
                 cmd.Parameters.AddWithValue("@pro_quantidade", model.Quantidade);
 
 
@@ -106,7 +106,23 @@ namespace Projeto_LP2.Model
 
         public bool Remover(ProdutosLista model)
         {
-            throw new NotImplementedException();
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "DELETE FROM produtos_listas WHERE id_produtolistas = @value;";
+                cmd.Parameters.AddWithValue("@value", model.Id);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    return true;
+
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
     }
 }

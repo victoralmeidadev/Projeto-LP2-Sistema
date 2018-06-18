@@ -99,7 +99,32 @@ namespace Projeto_LP2.Model
 
         public Collection<Supermercado> LocalizarPorCodigo(Supermercado model)
         {
-            throw new NotImplementedException();
+            Collection<Supermercado> colecao = new Collection<Supermercado>();
+
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "SELECT * FROM supermercado WHERE sup_nome like @value;";
+
+                cmd.Parameters.AddWithValue("@value", "%" + model.Nome + "%");
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+
+                    foreach (DataRow row in tabela.Rows)
+                    {
+                        Supermercado supermercado = new Supermercado
+                        {
+                            Id = int.Parse(row["id_supermercado"].ToString()),
+                            Nome = row["sup_nome"].ToString()
+                        };
+                        colecao.Add(supermercado);
+                    }
+                }
+                return colecao;
+            }
         }
 
         public bool Remover(Supermercado model)

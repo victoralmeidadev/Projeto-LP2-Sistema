@@ -35,5 +35,18 @@ namespace Projeto_LP2.Views
         {
 
         }
+
+        private void lblFiltroSupermercado_TextChanged(object sender, EventArgs e)
+        {
+            using (IConnection conn = new Connection())
+            {
+                conn.Abrir();
+                IDAO<Supermercado> SupermercadosDAO = new SupermercadoDAO(conn);
+                Supermercado supermercado = new Supermercado();
+                supermercado.Nome = txtFiltroSupermercado.Text;
+                dataGridViewSupermercados.DataSource = SupermercadosDAO.LocalizarPorCodigo(supermercado);
+                dataGridViewSupermercados.Refresh();
+            }
+        }
     }
 }

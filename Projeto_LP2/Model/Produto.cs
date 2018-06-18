@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Projeto_LP2.Model
 {
-    class Produto
+    public class Produto
     {
         private int id;
-        private string nomeProduto, supermercado, codigo;
+        private string nomeProduto, codigo, supermercado, categoria;
         private double preco;
+
         public string Codigo
         {
             get
@@ -73,6 +74,19 @@ namespace Projeto_LP2.Model
             set
             {
                 supermercado = value;
+            }
+        }
+
+        public string Categoria
+        {
+            get
+            {
+                return categoria;
+            }
+
+            set
+            {
+                categoria = value;
             }
         }
     }

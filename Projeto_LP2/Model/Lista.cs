@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_LP2.Model
 {
-    class Lista
+    public class Lista
     {
         private int id;
         private string nome;

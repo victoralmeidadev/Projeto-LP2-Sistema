@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Projeto_LP2.Model
 {
-    public class Supermercado
+    public class Categoria
     {
         private int id;
         private string nome;
+
 
         public int Id
         {
@@ -38,3 +39,4 @@ namespace Projeto_LP2.Model
         }
     }
 }
+

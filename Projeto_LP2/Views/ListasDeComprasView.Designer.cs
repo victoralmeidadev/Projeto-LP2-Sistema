@@ -38,8 +38,8 @@
             this.btnNovaLista = new System.Windows.Forms.Button();
             this.dataGridViewItensLista = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRemoverProduto = new System.Windows.Forms.Button();
+            this.btnAdicionarProdutoLista = new System.Windows.Forms.Button();
             this.dataGridViewListas = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -157,42 +157,45 @@
             this.dataGridViewItensLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewItensLista.Size = new System.Drawing.Size(800, 200);
             this.dataGridViewItensLista.TabIndex = 2;
+            this.dataGridViewItensLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItensLista_CellClick);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btnRemoverProduto);
+            this.panel3.Controls.Add(this.btnAdicionarProdutoLista);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 547);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(798, 47);
             this.panel3.TabIndex = 1;
             // 
-            // button3
+            // btnRemoverProduto
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(403, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 47);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Remover produto";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnRemoverProduto.FlatAppearance.BorderSize = 0;
+            this.btnRemoverProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemoverProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemoverProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverProduto.Location = new System.Drawing.Point(403, 0);
+            this.btnRemoverProduto.Name = "btnRemoverProduto";
+            this.btnRemoverProduto.Size = new System.Drawing.Size(75, 47);
+            this.btnRemoverProduto.TabIndex = 10;
+            this.btnRemoverProduto.Text = "Remover produto";
+            this.btnRemoverProduto.UseVisualStyleBackColor = true;
+            this.btnRemoverProduto.Click += new System.EventHandler(this.btnRemoverProduto_Click);
             // 
-            // button2
+            // btnAdicionarProdutoLista
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(322, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 47);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Adicionar produto";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAdicionarProdutoLista.FlatAppearance.BorderSize = 0;
+            this.btnAdicionarProdutoLista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAdicionarProdutoLista.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnAdicionarProdutoLista.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdicionarProdutoLista.Location = new System.Drawing.Point(322, 0);
+            this.btnAdicionarProdutoLista.Name = "btnAdicionarProdutoLista";
+            this.btnAdicionarProdutoLista.Size = new System.Drawing.Size(75, 47);
+            this.btnAdicionarProdutoLista.TabIndex = 9;
+            this.btnAdicionarProdutoLista.Text = "Adicionar produto";
+            this.btnAdicionarProdutoLista.UseVisualStyleBackColor = true;
+            this.btnAdicionarProdutoLista.Click += new System.EventHandler(this.btnAdicionarProdutoLista_Click);
             // 
             // dataGridViewListas
             // 
@@ -242,8 +245,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRemoverProduto;
+        private System.Windows.Forms.Button btnAdicionarProdutoLista;
         private System.Windows.Forms.DataGridView dataGridViewItensLista;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnRemover;

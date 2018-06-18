@@ -130,11 +130,10 @@ namespace Projeto_LP2.Model
             using (MySqlCommand cmd = conn.Buscar().CreateCommand())
             {
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "DELETE lis, plis FROM listas lis JOIN produtos_listas plis" +
-                " ON lis.id_lista = plis.pro_lista WHERE lis.id_lista = @id and plis.pro_lista = @id2";
+                cmd.CommandText = "DELETE FROM listas WHERE id_lista = @id";
 
                 cmd.Parameters.AddWithValue("@id", model.Id);
-                cmd.Parameters.AddWithValue("@id2", model.Id);
+
 
                 try
                 {

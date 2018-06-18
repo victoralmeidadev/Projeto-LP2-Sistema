@@ -34,7 +34,6 @@
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.btnAdicionarProduto = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtIdLista = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblProduto
@@ -69,6 +68,7 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(166, 20);
             this.txtQuantidade.TabIndex = 3;
+            this.txtQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQuantidade_KeyPress);
             // 
             // btnAdicionarProduto
             // 
@@ -89,21 +89,11 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // txtIdLista
-            // 
-            this.txtIdLista.Location = new System.Drawing.Point(16, 81);
-            this.txtIdLista.Name = "txtIdLista";
-            this.txtIdLista.Size = new System.Drawing.Size(62, 20);
-            this.txtIdLista.TabIndex = 6;
-            this.txtIdLista.Visible = false;
-            this.txtIdLista.TextChanged += new System.EventHandler(this.txtIdLista_TextChanged);
-            // 
             // NovoProdutoListaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 145);
-            this.Controls.Add(this.txtIdLista);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAdicionarProduto);
             this.Controls.Add(this.txtQuantidade);
@@ -126,6 +116,5 @@
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.Button btnAdicionarProduto;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtIdLista;
     }
 }

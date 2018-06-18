@@ -22,18 +22,27 @@ namespace Projeto_LP2.Model
 
         public void Atualizar(Produto model)
         {
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.CommandText = "UPDATE produtos SET prod_nome=@nome, prod_codigo=@codigo, prod_preco=@preco, prod_supermercado=@supermercado where" +
-                "id_produtos=@id;";
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "UPDATE produto SET prod_nome= @nome, prod_preco= @preco, prod_categoria = @categoria, prod_codigo = @codigo where id_produto= @id;";
+                cmd.Parameters.AddWithValue("@nome", model.NomeProduto);
+                cmd.Parameters.AddWithValue("@preco", model.Preco);
+                cmd.Parameters.AddWithValue("@id", model.Id);
+                cmd.Parameters.AddWithValue("@categoria", model.Categoria);
+                cmd.Parameters.AddWithValue("@codigo", model.Codigo);
 
-            cmd.Parameters.AddWithValue("@nome", model.NomeProduto);
-            cmd.Parameters.AddWithValue("@codigo", model.Codigo);
-            cmd.Parameters.AddWithValue("@preco", model.Preco);
-            cmd.Parameters.AddWithValue("@supermercado", model.Supermercado);
-            cmd.Parameters.AddWithValue("@id", model.Id);
-            conn.Buscar();
-            cmd.ExecuteNonQuery();           
-            conn.Fechar();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                   
+                }
+                catch
+                {
+                    Dispose();
+                }
+
+            }
             
 
         }
@@ -44,13 +53,14 @@ namespace Projeto_LP2.Model
             using(MySqlCommand cmd = conn.Buscar().CreateCommand())
             {
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) " +
-                "VALUES(@nome, @codigo, @preco, @supermercado);";
+                cmd.CommandText = "INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado, prod_categoria) " +
+                "VALUES(@nome, @codigo, @preco, @supermercado, @categoria);";
 
                 cmd.Parameters.AddWithValue("@nome", model.NomeProduto);
                 cmd.Parameters.AddWithValue("@codigo", model.Codigo);
                 cmd.Parameters.AddWithValue("@preco", model.Preco);
-                cmd.Parameters.AddWithValue("@supermercado", model.Supermercado);
+                cmd.Parameters.AddWithValue("@supermercado", int.Parse(model.Supermercado));
+                cmd.Parameters.AddWithValue("@categoria", int.Parse(model.Categoria));
 
                 try
                 {
@@ -75,7 +85,9 @@ namespace Projeto_LP2.Model
             using(MySqlCommand cmd = conn.Buscar().CreateCommand())
             {
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.CommandText = "SELECT * FROM produto GROUP BY prod_codigo ORDER BY prod_nome";
+                cmd.CommandText = "SELECT p.*, s.sup_nome, c.cat_nome FROM produto p, supermercado s, categoria c " +
+                    "WHERE p.prod_supermercado = s.id_supermercado and p.prod_categoria = c.id_categoria " +
+                    "ORDER BY p.prod_nome";
 
                 using(MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                 {
@@ -89,8 +101,9 @@ namespace Projeto_LP2.Model
                             Id = int.Parse(row["id_produto"].ToString()),
                             NomeProduto = row["prod_nome"].ToString(),
                             Preco = Convert.ToDouble(row["prod_preco"].ToString()),
-                            Supermercado = row["prod_supermercado"].ToString(),
-                            Codigo = row["prod_codigo"].ToString()
+                            Supermercado = row["sup_nome"].ToString(),
+                            Codigo = row["prod_codigo"].ToString(),
+                            Categoria = row["cat_nome"].ToString()
                         };
                         colecao.Add(produto);
                     }
@@ -101,13 +114,63 @@ namespace Projeto_LP2.Model
 
         public Collection<Produto> LocalizarPorCodigo(Produto model)
         {
-            throw new NotImplementedException();
+            Collection<Produto> colecao = new Collection<Produto>();
+
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "SELECT p.*, s.sup_nome, c.cat_nome FROM produto p, supermercado s, categoria c " +
+                    "WHERE p.prod_nome like @value and p.prod_supermercado = s.id_supermercado and p.prod_categoria = c.id_categoria " +
+                    "ORDER BY p.prod_nome;";
+
+                cmd.Parameters.AddWithValue("@value", "%"+ model.NomeProduto + "%");
+
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                {
+                    DataTable tabela = new DataTable();
+                    adapter.Fill(tabela);
+
+                    foreach (DataRow row in tabela.Rows)
+                    {
+                        Produto produto = new Produto
+                        {
+                            Id = int.Parse(row["id_produto"].ToString()),
+                            NomeProduto = row["prod_nome"].ToString(),
+                            Codigo = row["prod_codigo"].ToString(),
+                            Preco = double.Parse(row["prod_preco"].ToString()),
+                            Supermercado = row["sup_nome"].ToString(),
+                            Categoria = row["cat_nome"].ToString()
+                        };
+                        colecao.Add(produto);
+                    }
+                }
+                return colecao;
+            }
         }
 
         public bool Remover(Produto model)
         {
-            throw new NotImplementedException();
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "DELETE FROM produto WHERE id_produto = @id";
+
+                cmd.Parameters.AddWithValue("@id", model.Id);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+
+            }
+
         }
+    
 
         public void Dispose()
         {

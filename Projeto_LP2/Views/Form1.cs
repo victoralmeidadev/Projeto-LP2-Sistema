@@ -67,50 +67,13 @@ namespace Projeto_LP2
 
         }
 
-        private void graficoLoad()
-        {
-
-        }
-
-        private void NovoSupermercadoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CadastroSupermercadoForm form = new CadastroSupermercadoForm();
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.ShowDialog(this);
+   
 
 
-        }
+       
 
-        private void NovoPreçoProdutoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Cria um form para cadastro de novo livro
-            CadastroProdutoForm form = new CadastroProdutoForm();
-            //Ajusta a abertura do form para o centro do form que o invocou (parent)
-            form.StartPosition = FormStartPosition.CenterParent;
-            //Usa o método ShowDialog para abrir o Form como modal, ou seja, 
-            //bloqueado o form parent que o invocou (this)
-            form.ShowDialog(this);
-            //Fill é um método criado por nós para atualizar o datagridview
-            //com o conteúdo do dicionário
-        }
+      
 
-        private void verListasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ListasForm form = new ListasForm();
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.ShowDialog(this);
-        }
-
-        private void novaListaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NovaListaForm form = new NovaListaForm();
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.ShowDialog(this);
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-                    }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -181,6 +144,21 @@ namespace Projeto_LP2
             // Display the new form.  
             newMDIChild.Show();
             lblTitleScreen.Text = "Listas de compras";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja mesmo fechar a aplicação?", "Linguagem de programação II",
+         MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+         == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

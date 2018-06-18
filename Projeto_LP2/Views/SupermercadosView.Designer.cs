@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewSupermercados = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewSupermercados = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.txtFiltroSupermercado = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupermercados)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -54,51 +54,6 @@
             this.panel2.Size = new System.Drawing.Size(800, 550);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // dataGridViewSupermercados
-            // 
-            this.dataGridViewSupermercados.AllowUserToAddRows = false;
-            this.dataGridViewSupermercados.AllowUserToDeleteRows = false;
-            this.dataGridViewSupermercados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSupermercados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewSupermercados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSupermercados.Location = new System.Drawing.Point(-3, 53);
-            this.dataGridViewSupermercados.Name = "dataGridViewSupermercados";
-            this.dataGridViewSupermercados.ReadOnly = true;
-            this.dataGridViewSupermercados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridViewSupermercados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSupermercados.Size = new System.Drawing.Size(800, 446);
-            this.dataGridViewSupermercados.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 47);
-            this.panel1.TabIndex = 2;
-            // 
-            // button5
-            // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(500, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 44);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Filtrar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(230, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
-            this.textBox1.TabIndex = 3;
             // 
             // panel3
             // 
@@ -164,6 +119,52 @@
             this.button1.Text = "Cadastrar";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewSupermercados
+            // 
+            this.dataGridViewSupermercados.AllowUserToAddRows = false;
+            this.dataGridViewSupermercados.AllowUserToDeleteRows = false;
+            this.dataGridViewSupermercados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSupermercados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridViewSupermercados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSupermercados.Location = new System.Drawing.Point(-3, 53);
+            this.dataGridViewSupermercados.Name = "dataGridViewSupermercados";
+            this.dataGridViewSupermercados.ReadOnly = true;
+            this.dataGridViewSupermercados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridViewSupermercados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSupermercados.Size = new System.Drawing.Size(800, 446);
+            this.dataGridViewSupermercados.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.txtFiltroSupermercado);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 47);
+            this.panel1.TabIndex = 2;
+            // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Location = new System.Drawing.Point(500, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 44);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "Filtrar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // txtFiltroSupermercado
+            // 
+            this.txtFiltroSupermercado.Location = new System.Drawing.Point(230, 15);
+            this.txtFiltroSupermercado.Name = "txtFiltroSupermercado";
+            this.txtFiltroSupermercado.Size = new System.Drawing.Size(260, 20);
+            this.txtFiltroSupermercado.TabIndex = 3;
+            this.txtFiltroSupermercado.TextChanged += new System.EventHandler(this.lblFiltroSupermercado_TextChanged);
+            // 
             // SupermercadosView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,10 +178,10 @@
             this.Text = "SupermercadosView";
             this.Load += new System.EventHandler(this.SupermercadosView_Load);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupermercados)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -192,7 +193,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridViewSupermercados;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFiltroSupermercado;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

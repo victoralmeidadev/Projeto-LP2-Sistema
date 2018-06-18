@@ -6,35 +6,8 @@ id_produto INT NOT NULL AUTO_INCREMENT,
 prod_nome VARCHAR(128),
 prod_codigo VARCHAR(50),
 prod_preco double,
-prod_supermercado VARCHAR(128),
+prod_supermercado INT,
 PRIMARY KEY(id_produto) );
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Leite 1L", "1111", 2.50, "1");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Pão Caseiro", "1112", 5.00, "1");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Bolacha recheada", "1113", 2.00, "1");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Leite 1L", "1111", 2.30, "2");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Pão Caseiro", "1112", 5.10, "2");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Bolacha recheada", "1113", 2.15, "2");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Leite 1L", "1111", 2.52, "3");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Pão Caseiro", "1112", 4.99, "3");
-
-INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado) VALUES
-("Bolacha recheada", "1113", 1.83, "3");
 
 
 CREATE TABLE supermercado(
@@ -49,45 +22,6 @@ INSERT INTO supermercado(sup_nome) VALUES("Supermercado Mais Barato");
 INSERT INTO supermercado(sup_nome) VALUES("Supermercado Baratao");
 
 
-CREATE TABLE historico(
-id_historico INT NOT NULL AUTO_INCREMENT,
-his_idProduto VARCHAR(50),
-his_idSupermercado INT,
-his_data DATE,
-his_preco double,
-PRIMARY KEY(id_historico));
-
-//teste consulta
-select p.prod_nome, s.sup_nome, h.his_preco from produto p, supermercado s, historico h where p.prod_codigo = h.his_idProduto AND s.id_supermercado = h.his_idSupermercado GROUP BY h.id_historico ORDER BY his_data;
-//
-
-//
-select p.prod_nome, s.sup_nome, AVG(his_preco) as Preco_Medio from produto p, supermercado s, historico h WHERE p.prod_codigo = h.his_idProduto AND s.id_supermercado = h.his_idSupermercado GROUP BY h.his_idProduto, h.his_idSupermercado ORDER BY h.his_data;
-//
-
-//
-select p.prod_nome, h.his_preco from historico h, produto p, supermercado s where p.prod_codigo = h.his_idProduto and s.id_supermercado = h.his_idSupermercado and h.his_idSupermercado = 1 GROUP BY h.his_idProduto;
-//
-
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1111",1, NOW(), 2.25);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1111",2, NOW(), 2.20);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1111",1, NOW(), 2.26);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1111",2, NOW(), 2.23);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1111",1, NOW(), 2.30);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1111",2, NOW(), 2.31);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1111",1, NOW(), 2.32);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1111",2, NOW(), 2.33);
-
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1112",1, NOW(), 2.30);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1112",2, NOW(), 2.31);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1112",1, NOW(), 2.32);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1112",2, NOW(), 2.33);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1112",1, NOW(), 2.30);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1112",2, NOW(), 2.31);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data, his_preco) VALUES("1112",1, NOW(), 2.32);
-INSERT INTO historico(his_idProduto, his_idSupermercado, his_data,his_preco) VALUES("1112",2, NOW(), 2.33);
-
-
 CREATE TABLE listas(
 id_lista INT NOT NULL AUTO_INCREMENT,
 lis_nome VARCHAR(50),
@@ -98,11 +32,46 @@ INSERT INTO listas(lis_nome) VALUES("Lista de compras do tio");
 
 CREATE TABLE produtos_listas(
 id_produtolistas INT NOT NULL AUTO_INCREMENT,
-pro_lista INT,
+pro_lista INT NOT NULL,
 pro_nome VARCHAR(50),
-pro_idProduto VARCHAR(50),
 pro_quantidade INT,
-PRIMARY KEY(id_produtolistas));
+PRIMARY KEY(id_produtolistas),
+pro_idProduto INT NOT NULL,
+    FOREIGN KEY (pro_idProduto)
+        REFERENCES produto (id_produto)
+        ON DELETE CASCADE,
+	FOREIGN KEY (pro_lista)
+        REFERENCES listas (id_lista)
+        ON DELETE CASCADE);
 
-INSERT INTO produtos_listas(pro_lista, pro_nome, pro_idProduto, pro_quantidade) VALUES (1, "Leite 1L", "1111", 12);
-INSERT INTO produtos_listas(pro_lista, pro_nome, pro_idProduto, pro_quantidade) VALUES (2, "Leite 1L", "1111", 4);
+INSERT INTO produtos_listas(pro_lista, pro_nome, pro_idProduto, pro_quantidade) VALUES (1, "Produto 1", 40, 12);
+INSERT INTO produtos_listas(pro_lista, pro_nome, pro_idProduto, pro_quantidade) VALUES (2, "Produto 1", 40, 4);
+
+CREATE TABLE categoria(
+id_categoria INT NOT NULL AUTO_INCREMENT,
+cat_nome VARCHAR(64),
+PRIMARY KEY(id_categoria));
+
+INSERT INTO categoria(cat_nome) VALUES ("Alimentos");
+INSERT INTO categoria(cat_nome) VALUES ("Higiene");
+INSERT INTO categoria(cat_nome) VALUES ("Bebidas");
+INSERT INTO categoria(cat_nome) VALUES ("Limpeza");
+
+
+
+ALTER TABLE produto ADD prod_categoria int;
+ALTER TABLE `produto` ADD CONSTRAINT `fk_categoria` FOREIGN KEY ( `prod_categoria` ) REFERENCES `categoria` ( `id_categoria` ) ;
+ALTER TABLE `produto` ADD CONSTRAINT `fk_supermercado` FOREIGN KEY ( `prod_supermercado` ) REFERENCES `supermercado` ( `id_supermercado` ) ;
+ALTER TABLE produto CHANGE COLUMN prod_supermercado prod_supermercado INT;
+ALTER TABLE produtos_listas CHANGE COLUMN pro_idProduto pro_idProduto INT;
+ALTER TABLE `produtos_listas` ADD CONSTRAINT `fk_produto` FOREIGN KEY ( `pro_idProduto` ) REFERENCES `produto` ( `id_produto` ) ON DELETE CASCADE ;
+
+INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado, prod_categoria) VALUES
+("Leite", "1111", 2.50, "1");
+
+INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado, prod_categoria) VALUES
+("Pão Caseiro", "1112", 5.00, "1");
+
+INSERT INTO produto(prod_nome, prod_codigo, prod_preco, prod_supermercado, prod_categoria) VALUES
+("Bolacha recheada", "1113", 2.00, "1");
+

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_LP2.Model
 {
-    class Historico
+    public class Historico
     {
         private string nome_produto, nome_supermercado, data, hora;
         private double preco;

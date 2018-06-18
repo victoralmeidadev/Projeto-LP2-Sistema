@@ -32,19 +32,15 @@
             this.lblCodigoProduto = new System.Windows.Forms.Label();
             this.lblPrecoProduto1 = new System.Windows.Forms.Label();
             this.lblSupermercadoProduto1 = new System.Windows.Forms.Label();
-            this.lblPergunta = new System.Windows.Forms.Label();
             this.txtNomeNovoProduto = new System.Windows.Forms.TextBox();
             this.txtCodigoNovoProduto = new System.Windows.Forms.TextBox();
-            this.txtPrecoNovoProduto1 = new System.Windows.Forms.TextBox();
-            this.cBoxSupermercadoNovoProduto1 = new System.Windows.Forms.ComboBox();
-            this.radioButtonSim = new System.Windows.Forms.RadioButton();
-            this.radioButtonNao = new System.Windows.Forms.RadioButton();
-            this.cBoxSupermercadoNovoProduto2 = new System.Windows.Forms.ComboBox();
-            this.txtPrecoNovoProduto2 = new System.Windows.Forms.TextBox();
-            this.lblSupermercadoProduto2 = new System.Windows.Forms.Label();
-            this.lblPrecoProduto2 = new System.Windows.Forms.Label();
+            this.cBoxSupermercadoNovoProduto = new System.Windows.Forms.ComboBox();
             this.BtnCadastraNovoProduto = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
+            this.cBoxCategoriaNovoProduto = new System.Windows.Forms.ComboBox();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.txtPrecoNovoProduto = new System.Windows.Forms.TextBox();
+            this.lblNovaCategoria = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblNomeProduto
@@ -83,16 +79,6 @@
             this.lblSupermercadoProduto1.TabIndex = 3;
             this.lblSupermercadoProduto1.Text = "Supermercado:";
             // 
-            // lblPergunta
-            // 
-            this.lblPergunta.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblPergunta.AutoSize = true;
-            this.lblPergunta.Location = new System.Drawing.Point(70, 200);
-            this.lblPergunta.Name = "lblPergunta";
-            this.lblPergunta.Size = new System.Drawing.Size(297, 13);
-            this.lblPergunta.TabIndex = 4;
-            this.lblPergunta.Text = "Deseja adicionar preço do supermercado concorrente agora?";
-            // 
             // txtNomeNovoProduto
             // 
             this.txtNomeNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -101,105 +87,34 @@
             this.txtNomeNovoProduto.Name = "txtNomeNovoProduto";
             this.txtNomeNovoProduto.Size = new System.Drawing.Size(308, 20);
             this.txtNomeNovoProduto.TabIndex = 5;
+            this.txtNomeNovoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeNovoProduto_KeyPress);
             // 
             // txtCodigoNovoProduto
             // 
             this.txtCodigoNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCodigoNovoProduto.Location = new System.Drawing.Point(110, 70);
+            this.txtCodigoNovoProduto.MaxLength = 7;
             this.txtCodigoNovoProduto.Name = "txtCodigoNovoProduto";
             this.txtCodigoNovoProduto.Size = new System.Drawing.Size(308, 20);
             this.txtCodigoNovoProduto.TabIndex = 6;
+            this.txtCodigoNovoProduto.TextChanged += new System.EventHandler(this.txtCodigoNovoProduto_TextChanged);
+            this.txtCodigoNovoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoNovoProduto_KeyPress);
             // 
-            // txtPrecoNovoProduto1
+            // cBoxSupermercadoNovoProduto
             // 
-            this.txtPrecoNovoProduto1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cBoxSupermercadoNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrecoNovoProduto1.Location = new System.Drawing.Point(110, 110);
-            this.txtPrecoNovoProduto1.Name = "txtPrecoNovoProduto1";
-            this.txtPrecoNovoProduto1.Size = new System.Drawing.Size(308, 20);
-            this.txtPrecoNovoProduto1.TabIndex = 7;
-            // 
-            // cBoxSupermercadoNovoProduto1
-            // 
-            this.cBoxSupermercadoNovoProduto1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cBoxSupermercadoNovoProduto1.FormattingEnabled = true;
-            this.cBoxSupermercadoNovoProduto1.Location = new System.Drawing.Point(110, 150);
-            this.cBoxSupermercadoNovoProduto1.Name = "cBoxSupermercadoNovoProduto1";
-            this.cBoxSupermercadoNovoProduto1.Size = new System.Drawing.Size(308, 21);
-            this.cBoxSupermercadoNovoProduto1.TabIndex = 8;
-            // 
-            // radioButtonSim
-            // 
-            this.radioButtonSim.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radioButtonSim.AutoSize = true;
-            this.radioButtonSim.Location = new System.Drawing.Point(180, 220);
-            this.radioButtonSim.Name = "radioButtonSim";
-            this.radioButtonSim.Size = new System.Drawing.Size(42, 17);
-            this.radioButtonSim.TabIndex = 9;
-            this.radioButtonSim.TabStop = true;
-            this.radioButtonSim.Text = "Sim";
-            this.radioButtonSim.UseVisualStyleBackColor = true;
-            this.radioButtonSim.CheckedChanged += new System.EventHandler(this.radioButtonSim_CheckedChanged);
-            this.radioButtonSim.Click += new System.EventHandler(this.RadioButtonSim_Click);
-            // 
-            // radioButtonNao
-            // 
-            this.radioButtonNao.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.radioButtonNao.AutoSize = true;
-            this.radioButtonNao.Location = new System.Drawing.Point(230, 220);
-            this.radioButtonNao.Name = "radioButtonNao";
-            this.radioButtonNao.Size = new System.Drawing.Size(45, 17);
-            this.radioButtonNao.TabIndex = 10;
-            this.radioButtonNao.TabStop = true;
-            this.radioButtonNao.Text = "Não";
-            this.radioButtonNao.UseVisualStyleBackColor = true;
-            this.radioButtonNao.Click += new System.EventHandler(this.RadioButtonNao_Click);
-            // 
-            // cBoxSupermercadoNovoProduto2
-            // 
-            this.cBoxSupermercadoNovoProduto2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cBoxSupermercadoNovoProduto2.Enabled = false;
-            this.cBoxSupermercadoNovoProduto2.FormattingEnabled = true;
-            this.cBoxSupermercadoNovoProduto2.Location = new System.Drawing.Point(114, 300);
-            this.cBoxSupermercadoNovoProduto2.Name = "cBoxSupermercadoNovoProduto2";
-            this.cBoxSupermercadoNovoProduto2.Size = new System.Drawing.Size(308, 21);
-            this.cBoxSupermercadoNovoProduto2.TabIndex = 14;
-            // 
-            // txtPrecoNovoProduto2
-            // 
-            this.txtPrecoNovoProduto2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPrecoNovoProduto2.Enabled = false;
-            this.txtPrecoNovoProduto2.Location = new System.Drawing.Point(114, 260);
-            this.txtPrecoNovoProduto2.Name = "txtPrecoNovoProduto2";
-            this.txtPrecoNovoProduto2.Size = new System.Drawing.Size(308, 20);
-            this.txtPrecoNovoProduto2.TabIndex = 13;
-            // 
-            // lblSupermercadoProduto2
-            // 
-            this.lblSupermercadoProduto2.AutoSize = true;
-            this.lblSupermercadoProduto2.Location = new System.Drawing.Point(16, 300);
-            this.lblSupermercadoProduto2.Name = "lblSupermercadoProduto2";
-            this.lblSupermercadoProduto2.Size = new System.Drawing.Size(79, 13);
-            this.lblSupermercadoProduto2.TabIndex = 12;
-            this.lblSupermercadoProduto2.Text = "Supermercado:";
-            // 
-            // lblPrecoProduto2
-            // 
-            this.lblPrecoProduto2.AutoSize = true;
-            this.lblPrecoProduto2.Location = new System.Drawing.Point(16, 260);
-            this.lblPrecoProduto2.Name = "lblPrecoProduto2";
-            this.lblPrecoProduto2.Size = new System.Drawing.Size(38, 13);
-            this.lblPrecoProduto2.TabIndex = 11;
-            this.lblPrecoProduto2.Text = "Preço:";
+            this.cBoxSupermercadoNovoProduto.FormattingEnabled = true;
+            this.cBoxSupermercadoNovoProduto.Location = new System.Drawing.Point(110, 150);
+            this.cBoxSupermercadoNovoProduto.Name = "cBoxSupermercadoNovoProduto";
+            this.cBoxSupermercadoNovoProduto.Size = new System.Drawing.Size(308, 21);
+            this.cBoxSupermercadoNovoProduto.TabIndex = 8;
             // 
             // BtnCadastraNovoProduto
             // 
             this.BtnCadastraNovoProduto.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnCadastraNovoProduto.Location = new System.Drawing.Point(147, 347);
+            this.BtnCadastraNovoProduto.Location = new System.Drawing.Point(147, 242);
             this.BtnCadastraNovoProduto.Name = "BtnCadastraNovoProduto";
             this.BtnCadastraNovoProduto.Size = new System.Drawing.Size(75, 40);
             this.BtnCadastraNovoProduto.TabIndex = 15;
@@ -210,7 +125,7 @@
             // BtnCancelar
             // 
             this.BtnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BtnCancelar.Location = new System.Drawing.Point(230, 347);
+            this.BtnCancelar.Location = new System.Drawing.Point(228, 242);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(75, 40);
             this.BtnCancelar.TabIndex = 16;
@@ -218,24 +133,58 @@
             this.BtnCancelar.UseVisualStyleBackColor = true;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // cBoxCategoriaNovoProduto
+            // 
+            this.cBoxCategoriaNovoProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cBoxCategoriaNovoProduto.FormattingEnabled = true;
+            this.cBoxCategoriaNovoProduto.Location = new System.Drawing.Point(110, 191);
+            this.cBoxCategoriaNovoProduto.Name = "cBoxCategoriaNovoProduto";
+            this.cBoxCategoriaNovoProduto.Size = new System.Drawing.Size(308, 21);
+            this.cBoxCategoriaNovoProduto.TabIndex = 20;
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(12, 191);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(55, 13);
+            this.lblCategoria.TabIndex = 19;
+            this.lblCategoria.Text = "Categoria:";
+            // 
+            // txtPrecoNovoProduto
+            // 
+            this.txtPrecoNovoProduto.Location = new System.Drawing.Point(110, 107);
+            this.txtPrecoNovoProduto.Name = "txtPrecoNovoProduto";
+            this.txtPrecoNovoProduto.Size = new System.Drawing.Size(308, 20);
+            this.txtPrecoNovoProduto.TabIndex = 22;
+            this.txtPrecoNovoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecoNovoProduto_KeyPress_1);
+            // 
+            // lblNovaCategoria
+            // 
+            this.lblNovaCategoria.AutoSize = true;
+            this.lblNovaCategoria.Location = new System.Drawing.Point(210, 215);
+            this.lblNovaCategoria.Name = "lblNovaCategoria";
+            this.lblNovaCategoria.Size = new System.Drawing.Size(208, 13);
+            this.lblNovaCategoria.TabIndex = 23;
+            this.lblNovaCategoria.TabStop = true;
+            this.lblNovaCategoria.Text = "Não encontrou a categoria? Cadastre aqui";
+            this.lblNovaCategoria.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNovaCategoria_LinkClicked);
+            // 
             // CadastroNovoProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 396);
+            this.ClientSize = new System.Drawing.Size(434, 303);
+            this.Controls.Add(this.lblNovaCategoria);
+            this.Controls.Add(this.txtPrecoNovoProduto);
+            this.Controls.Add(this.cBoxCategoriaNovoProduto);
+            this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnCadastraNovoProduto);
-            this.Controls.Add(this.cBoxSupermercadoNovoProduto2);
-            this.Controls.Add(this.txtPrecoNovoProduto2);
-            this.Controls.Add(this.lblSupermercadoProduto2);
-            this.Controls.Add(this.lblPrecoProduto2);
-            this.Controls.Add(this.radioButtonNao);
-            this.Controls.Add(this.radioButtonSim);
-            this.Controls.Add(this.cBoxSupermercadoNovoProduto1);
-            this.Controls.Add(this.txtPrecoNovoProduto1);
+            this.Controls.Add(this.cBoxSupermercadoNovoProduto);
             this.Controls.Add(this.txtCodigoNovoProduto);
             this.Controls.Add(this.txtNomeNovoProduto);
-            this.Controls.Add(this.lblPergunta);
             this.Controls.Add(this.lblSupermercadoProduto1);
             this.Controls.Add(this.lblPrecoProduto1);
             this.Controls.Add(this.lblCodigoProduto);
@@ -254,18 +203,14 @@
         private System.Windows.Forms.Label lblCodigoProduto;
         private System.Windows.Forms.Label lblPrecoProduto1;
         private System.Windows.Forms.Label lblSupermercadoProduto1;
-        private System.Windows.Forms.Label lblPergunta;
         private System.Windows.Forms.TextBox txtNomeNovoProduto;
         private System.Windows.Forms.TextBox txtCodigoNovoProduto;
-        private System.Windows.Forms.TextBox txtPrecoNovoProduto1;
-        private System.Windows.Forms.ComboBox cBoxSupermercadoNovoProduto1;
-        private System.Windows.Forms.RadioButton radioButtonSim;
-        private System.Windows.Forms.RadioButton radioButtonNao;
-        private System.Windows.Forms.ComboBox cBoxSupermercadoNovoProduto2;
-        private System.Windows.Forms.TextBox txtPrecoNovoProduto2;
-        private System.Windows.Forms.Label lblSupermercadoProduto2;
-        private System.Windows.Forms.Label lblPrecoProduto2;
+        private System.Windows.Forms.ComboBox cBoxSupermercadoNovoProduto;
         private System.Windows.Forms.Button BtnCadastraNovoProduto;
         private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.ComboBox cBoxCategoriaNovoProduto;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.TextBox txtPrecoNovoProduto;
+        private System.Windows.Forms.LinkLabel lblNovaCategoria;
     }
 }
