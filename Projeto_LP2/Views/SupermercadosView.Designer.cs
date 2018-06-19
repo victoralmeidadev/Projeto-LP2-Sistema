@@ -30,10 +30,10 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoverSupermercado = new System.Windows.Forms.Button();
+            this.btnVisualizarSupermercado = new System.Windows.Forms.Button();
+            this.btnEditarSupermercado = new System.Windows.Forms.Button();
+            this.btnCadastrarSupermercado = new System.Windows.Forms.Button();
             this.dataGridViewSupermercados = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -57,67 +57,69 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnRemoverSupermercado);
+            this.panel3.Controls.Add(this.btnVisualizarSupermercado);
+            this.panel3.Controls.Add(this.btnEditarSupermercado);
+            this.panel3.Controls.Add(this.btnCadastrarSupermercado);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 505);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(800, 45);
             this.panel3.TabIndex = 3;
             // 
-            // button4
+            // btnRemoverSupermercado
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(484, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 47);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Remover";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnRemoverSupermercado.FlatAppearance.BorderSize = 0;
+            this.btnRemoverSupermercado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemoverSupermercado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemoverSupermercado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoverSupermercado.Location = new System.Drawing.Point(484, 0);
+            this.btnRemoverSupermercado.Name = "btnRemoverSupermercado";
+            this.btnRemoverSupermercado.Size = new System.Drawing.Size(75, 47);
+            this.btnRemoverSupermercado.TabIndex = 7;
+            this.btnRemoverSupermercado.Text = "Remover";
+            this.btnRemoverSupermercado.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnVisualizarSupermercado
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(403, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 47);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Visualizar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnVisualizarSupermercado.FlatAppearance.BorderSize = 0;
+            this.btnVisualizarSupermercado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnVisualizarSupermercado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnVisualizarSupermercado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVisualizarSupermercado.Location = new System.Drawing.Point(403, 0);
+            this.btnVisualizarSupermercado.Name = "btnVisualizarSupermercado";
+            this.btnVisualizarSupermercado.Size = new System.Drawing.Size(75, 47);
+            this.btnVisualizarSupermercado.TabIndex = 6;
+            this.btnVisualizarSupermercado.Text = "Visualizar";
+            this.btnVisualizarSupermercado.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnEditarSupermercado
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(322, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 47);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditarSupermercado.FlatAppearance.BorderSize = 0;
+            this.btnEditarSupermercado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEditarSupermercado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnEditarSupermercado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditarSupermercado.Location = new System.Drawing.Point(322, 0);
+            this.btnEditarSupermercado.Name = "btnEditarSupermercado";
+            this.btnEditarSupermercado.Size = new System.Drawing.Size(75, 47);
+            this.btnEditarSupermercado.TabIndex = 5;
+            this.btnEditarSupermercado.Text = "Editar";
+            this.btnEditarSupermercado.UseVisualStyleBackColor = true;
+            this.btnEditarSupermercado.Click += new System.EventHandler(this.btnEditarSupermercado_Click);
             // 
-            // button1
+            // btnCadastrarSupermercado
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(241, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 47);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Cadastrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCadastrarSupermercado.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarSupermercado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCadastrarSupermercado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCadastrarSupermercado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarSupermercado.Location = new System.Drawing.Point(241, 0);
+            this.btnCadastrarSupermercado.Name = "btnCadastrarSupermercado";
+            this.btnCadastrarSupermercado.Size = new System.Drawing.Size(75, 47);
+            this.btnCadastrarSupermercado.TabIndex = 4;
+            this.btnCadastrarSupermercado.Text = "Cadastrar";
+            this.btnCadastrarSupermercado.UseVisualStyleBackColor = true;
+            this.btnCadastrarSupermercado.Click += new System.EventHandler(this.btnCadastrarSupermercado_Click);
             // 
             // dataGridViewSupermercados
             // 
@@ -133,6 +135,7 @@
             this.dataGridViewSupermercados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSupermercados.Size = new System.Drawing.Size(800, 446);
             this.dataGridViewSupermercados.TabIndex = 0;
+            this.dataGridViewSupermercados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSupermercados_CellClick);
             // 
             // panel1
             // 
@@ -194,9 +197,9 @@
         private System.Windows.Forms.DataGridView dataGridViewSupermercados;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtFiltroSupermercado;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemoverSupermercado;
+        private System.Windows.Forms.Button btnVisualizarSupermercado;
+        private System.Windows.Forms.Button btnEditarSupermercado;
+        private System.Windows.Forms.Button btnCadastrarSupermercado;
     }
 }

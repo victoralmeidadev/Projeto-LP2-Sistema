@@ -72,7 +72,7 @@ namespace Projeto_LP2.Views
                 IDAO<Produto> ProdutosDAO = new ProdutoDAO(conn);
                 Produto p = new Produto();
                 p.Id = this.idSelecionado;
-                Collection<Produto> colecao = ProdutosDAO.LocalizarPorCodigo(p);
+                Collection<Produto> colecao = ProdutosDAO.ListarTudo();
                 
                 foreach(Produto prod in colecao)
                 {

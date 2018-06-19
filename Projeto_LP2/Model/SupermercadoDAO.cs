@@ -22,7 +22,24 @@ namespace Projeto_LP2.Model
 
         public void Atualizar(Supermercado model)
         {
-            throw new NotImplementedException();
+            using (MySqlCommand cmd = conn.Buscar().CreateCommand())
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.CommandText = "UPDATE supermercado SET sup_nome= @nome where id_supermercado= @id;";
+                cmd.Parameters.AddWithValue("@nome", model.Nome);
+                cmd.Parameters.AddWithValue("@id", model.Id);
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch
+                {
+                    Dispose();
+                }
+
+            }
         }
 
         public void Dispose()
